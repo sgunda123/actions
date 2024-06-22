@@ -1,0 +1,12 @@
+name: CRON Trigger
+
+on:
+    schedule:
+        - cron: '*/5 * * * *'
+
+jobs:
+    build_job_1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Hello
+              run: echo "Hello World"
