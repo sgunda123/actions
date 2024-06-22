@@ -1,0 +1,45 @@
+name: Multiple Jobs Workflow
+
+on: push
+
+jobs:
+    build_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v4
+
+        - name: List all files
+          run: ls -al
+
+        - name: Execute build Script
+          run: |
+            chmod a+x build-script.sh
+            ./build-script.sh
+    test_job:
+        runs-on: ubuntu-latest
+        
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v4
+          
+        - name: List all files
+          run: ls -al
+
+        - name: Execute Shell Script
+          run: |
+            chmod a+x test-script.sh
+            ./test-script.sh
+    deploy_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v4'
+
+        - name: List all files
+          run: ls -al
+
+        - name: Execute deploy Script
+          run: |
+            chmod a+x deploy-script.sh
+            ./deploy-script.sh                     
