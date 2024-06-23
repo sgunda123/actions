@@ -1,0 +1,14 @@
+
+
+# name: triggered by webhook
+
+# on:
+#    webhook:
+#         url: https://example.com/mywebook
+
+# jobs:
+#     my_job:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: my test web
+#               run: echo 'hello world'
