@@ -1,0 +1,18 @@
+name: timeout-testing
+#on: [push, workflow_dispatch]
+on: push
+jobs:
+    job_one:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job one
+              run: echo "executing job one"
+    job_two:
+        needs: job_one
+        runs-on: ubuntu-latest
+        timeout-minutes: 2
+        steps:
+          - name: job two
+            run: |
+              echo executing job two
+              sleep 300s
