@@ -1,0 +1,13 @@
+name: macos-docker
+on: workflow_dispatch
+jobs:
+    test-macos:
+        runs-on: macos-latest
+        steps:
+          - name: run hello world
+            run: echo "hello world"
+          - name: install docker
+            run: |
+                brew install docker
+                colima start
+                docker run hello-world
