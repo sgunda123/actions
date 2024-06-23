@@ -1,0 +1,22 @@
+# if cancel in progress is true, it cancels any executing job_two
+# if cancel in progress is false - the second workflow will wait for the previous one to be complete
+name: concurrency-testing
+#on: [push, workflow_dispatch]
+on: workflow_dispatch
+jobs:
+    job_one:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job one
+              run: echo "executing job one"
+    job_two:
+        needs: job_one
+        concurrency: 
+            group: job_two
+            cancel-in-progress: true
+        runs-on: ubuntu-latest
+        steps:
+          - name: job two
+            run: |
+              echo executing job two
+              sleep 300s
