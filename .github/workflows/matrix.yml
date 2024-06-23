@@ -1,0 +1,15 @@
+name: matrix test
+on: workflow_dispatch
+jobs:
+    deploy:
+        strategy:
+            matrix:
+                os: [ubuntu-latest, macos-latest, windows-latest]
+                images: [hellow-world, alpine]
+        runs-on: ${{ matrix.os}}
+        steps:
+          - name: Echo Docker Details
+            run: docker info
+
+            name: Run Image on ${{ matrix.os }}
+            run: docker run ${{ matrix.images }}
