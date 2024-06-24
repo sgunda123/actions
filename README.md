@@ -1,3 +1,3 @@
 # actions
 
-This is my README
+To make workflow skip - add [skip ci] to commit message
