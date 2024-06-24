@@ -3,10 +3,10 @@ on:
     workflow_dispatch:
     # schedule:
     #     - cron: "*/5 * * * *"
-    push:
-      branches-ignore:
-        - feature/*
-        - test/**
+    # push:
+    #   branches-ignore:
+    #     - feature/*
+    #     - test/**
     pull_request:
         types: 
           - opened
