@@ -1,0 +1,16 @@
+name: workflow_trigger_manual
+on:
+    workflow_dispatch:
+        inputs:
+            message:
+                description: "Additional message"
+                type: string
+                required: false
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: printing workflow inputs
+              run: |
+                echo "Message: ${{ inputs.message}}"
