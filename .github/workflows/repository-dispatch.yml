@@ -1,0 +1,12 @@
+name: repository dispatch event
+on:
+    repository_dispatch:
+        types: [system_result]
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - name: print payload
+            run: |
+               echo "payload: ${{ github.event.system_payload.message }}"
